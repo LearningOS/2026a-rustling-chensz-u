@@ -1,0 +1,44 @@
+name: Check Windows setup
+
+on:
+  push:
+    paths: ['start-windows.ps1', '.cargo/config.toml', 'rust-toolchain.toml', 'src/**', '.github/workflows/windows.yml']
+  pull_request:
+    paths: ['start-windows.ps1', '.cargo/config.toml', 'rust-toolchain.toml', 'src/**', '.github/workflows/windows.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    if: github.repository == 'LearningOS/2026a-rustling'
+    runs-on: windows-2025
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: powershell
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Prepare an empty Rust installation without Visual Studio on PATH
+        run: |
+          $root = Join-Path $env:GITHUB_WORKSPACE 'tmp'
+          [void](New-Item -ItemType Directory -Force -Path $root)
+          "CARGO_HOME=$root/cargo" >> $env:GITHUB_ENV
+          "RUSTUP_HOME=$root/rustup" >> $env:GITHUB_ENV
+          "TMPDIR=$root" >> $env:GITHUB_ENV
+          "TEMP=$root" >> $env:GITHUB_ENV
+          "TMP=$root" >> $env:GITHUB_ENV
+          "PATH=$root/cargo/bin;$env:SystemRoot/System32;$env:SystemRoot" >> $env:GITHUB_ENV
+      - name: Run the student setup script
+        run: ./start-windows.ps1 -SetupOnly
+      - name: Check local exercise compilation and execution
+        run: |
+          cargo test --locked --bin rustlings
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          cargo run --locked -- run intro2
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          cargo run --locked -- run variables1
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
