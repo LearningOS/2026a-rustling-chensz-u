@@ -1,0 +1,672 @@
+{
+  "name": "2026a-rustling",
+  "title": "导学阶段-Rust 语言基础",
+  "courseId": 2084,
+  "totalScore": 110,
+  "secret": "OSCAMP_2026A_RUSTLINGS_TOKEN",
+  "source": "LearningOS/2026s-rustling-classroom-template",
+  "sourceCommit": "ade06927b84603689356bde886616dd40d3265de",
+  "organization": "LearningOS",
+  "tests": [
+    {
+      "name": "intro2",
+      "path": "exercises/intro/intro2.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "variables1",
+      "path": "exercises/variables/variables1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "variables2",
+      "path": "exercises/variables/variables2.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "variables3",
+      "path": "exercises/variables/variables3.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "variables4",
+      "path": "exercises/variables/variables4.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "variables5",
+      "path": "exercises/variables/variables5.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "variables6",
+      "path": "exercises/variables/variables6.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "functions1",
+      "path": "exercises/functions/functions1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "functions2",
+      "path": "exercises/functions/functions2.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "functions3",
+      "path": "exercises/functions/functions3.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "functions4",
+      "path": "exercises/functions/functions4.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "functions5",
+      "path": "exercises/functions/functions5.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "if1",
+      "path": "exercises/if/if1.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "if2",
+      "path": "exercises/if/if2.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "if3",
+      "path": "exercises/if/if3.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "quiz1",
+      "path": "exercises/quiz1.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "primitive_types1",
+      "path": "exercises/primitive_types/primitive_types1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "primitive_types2",
+      "path": "exercises/primitive_types/primitive_types2.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "primitive_types3",
+      "path": "exercises/primitive_types/primitive_types3.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "primitive_types4",
+      "path": "exercises/primitive_types/primitive_types4.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "primitive_types5",
+      "path": "exercises/primitive_types/primitive_types5.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "primitive_types6",
+      "path": "exercises/primitive_types/primitive_types6.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "vecs1",
+      "path": "exercises/vecs/vecs1.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "vecs2",
+      "path": "exercises/vecs/vecs2.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "move_semantics1",
+      "path": "exercises/move_semantics/move_semantics1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "move_semantics2",
+      "path": "exercises/move_semantics/move_semantics2.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "move_semantics3",
+      "path": "exercises/move_semantics/move_semantics3.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "move_semantics4",
+      "path": "exercises/move_semantics/move_semantics4.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "move_semantics5",
+      "path": "exercises/move_semantics/move_semantics5.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "move_semantics6",
+      "path": "exercises/move_semantics/move_semantics6.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "structs1",
+      "path": "exercises/structs/structs1.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "structs2",
+      "path": "exercises/structs/structs2.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "structs3",
+      "path": "exercises/structs/structs3.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "enums1",
+      "path": "exercises/enums/enums1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "enums2",
+      "path": "exercises/enums/enums2.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "enums3",
+      "path": "exercises/enums/enums3.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "strings1",
+      "path": "exercises/strings/strings1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "strings2",
+      "path": "exercises/strings/strings2.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "strings3",
+      "path": "exercises/strings/strings3.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "strings4",
+      "path": "exercises/strings/strings4.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "modules1",
+      "path": "exercises/modules/modules1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "modules2",
+      "path": "exercises/modules/modules2.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "modules3",
+      "path": "exercises/modules/modules3.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "hashmaps1",
+      "path": "exercises/hashmaps/hashmaps1.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "hashmaps2",
+      "path": "exercises/hashmaps/hashmaps2.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "hashmaps3",
+      "path": "exercises/hashmaps/hashmaps3.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "quiz2",
+      "path": "exercises/quiz2.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "options1",
+      "path": "exercises/options/options1.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "options2",
+      "path": "exercises/options/options2.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "options3",
+      "path": "exercises/options/options3.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "errors1",
+      "path": "exercises/error_handling/errors1.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "errors2",
+      "path": "exercises/error_handling/errors2.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "errors3",
+      "path": "exercises/error_handling/errors3.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "errors4",
+      "path": "exercises/error_handling/errors4.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "errors5",
+      "path": "exercises/error_handling/errors5.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "errors6",
+      "path": "exercises/error_handling/errors6.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "generics1",
+      "path": "exercises/generics/generics1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "generics2",
+      "path": "exercises/generics/generics2.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "traits1",
+      "path": "exercises/traits/traits1.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "traits2",
+      "path": "exercises/traits/traits2.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "traits3",
+      "path": "exercises/traits/traits3.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "traits4",
+      "path": "exercises/traits/traits4.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "traits5",
+      "path": "exercises/traits/traits5.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "quiz3",
+      "path": "exercises/quiz3.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "lifetimes1",
+      "path": "exercises/lifetimes/lifetimes1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "lifetimes2",
+      "path": "exercises/lifetimes/lifetimes2.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "lifetimes3",
+      "path": "exercises/lifetimes/lifetimes3.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "tests1",
+      "path": "exercises/tests/tests1.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "tests2",
+      "path": "exercises/tests/tests2.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "tests3",
+      "path": "exercises/tests/tests3.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "tests4",
+      "path": "exercises/tests/tests4.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "iterators1",
+      "path": "exercises/iterators/iterators1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "iterators2",
+      "path": "exercises/iterators/iterators2.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "iterators3",
+      "path": "exercises/iterators/iterators3.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "iterators4",
+      "path": "exercises/iterators/iterators4.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "iterators5",
+      "path": "exercises/iterators/iterators5.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "box1",
+      "path": "exercises/smart_pointers/box1.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "rc1",
+      "path": "exercises/smart_pointers/rc1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "arc1",
+      "path": "exercises/smart_pointers/arc1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "cow1",
+      "path": "exercises/smart_pointers/cow1.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "threads1",
+      "path": "exercises/threads/threads1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "threads2",
+      "path": "exercises/threads/threads2.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "threads3",
+      "path": "exercises/threads/threads3.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "macros1",
+      "path": "exercises/macros/macros1.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "macros2",
+      "path": "exercises/macros/macros2.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "macros3",
+      "path": "exercises/macros/macros3.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "macros4",
+      "path": "exercises/macros/macros4.rs",
+      "mode": "compile",
+      "score": 1
+    },
+    {
+      "name": "clippy1",
+      "path": "exercises/clippy/clippy1.rs",
+      "mode": "clippy",
+      "score": 1
+    },
+    {
+      "name": "clippy2",
+      "path": "exercises/clippy/clippy2.rs",
+      "mode": "clippy",
+      "score": 1
+    },
+    {
+      "name": "clippy3",
+      "path": "exercises/clippy/clippy3.rs",
+      "mode": "clippy",
+      "score": 1
+    },
+    {
+      "name": "using_as",
+      "path": "exercises/conversions/using_as.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "from_into",
+      "path": "exercises/conversions/from_into.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "from_str",
+      "path": "exercises/conversions/from_str.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "try_from_into",
+      "path": "exercises/conversions/try_from_into.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "as_ref_mut",
+      "path": "exercises/conversions/as_ref_mut.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "tests5",
+      "path": "exercises/tests/tests5.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "tests6",
+      "path": "exercises/tests/tests6.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "tests7",
+      "path": "exercises/tests/tests7.rs",
+      "mode": "buildscript",
+      "score": 1
+    },
+    {
+      "name": "tests8",
+      "path": "exercises/tests/tests8.rs",
+      "mode": "buildscript",
+      "score": 1
+    },
+    {
+      "name": "tests9",
+      "path": "exercises/tests/tests9.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "algorithm1",
+      "path": "exercises/algorithm/algorithm1.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "algorithm2",
+      "path": "exercises/algorithm/algorithm2.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "algorithm3",
+      "path": "exercises/algorithm/algorithm3.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "algorithm4",
+      "path": "exercises/algorithm/algorithm4.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "algorithm5",
+      "path": "exercises/algorithm/algorithm5.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "algorithm6",
+      "path": "exercises/algorithm/algorithm6.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "algorithm7",
+      "path": "exercises/algorithm/algorithm7.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "algorithm8",
+      "path": "exercises/algorithm/algorithm8.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "algorithm9",
+      "path": "exercises/algorithm/algorithm9.rs",
+      "mode": "test",
+      "score": 1
+    },
+    {
+      "name": "algorithm10",
+      "path": "exercises/algorithm/algorithm10.rs",
+      "mode": "test",
+      "score": 1
+    }
+  ]
+}
