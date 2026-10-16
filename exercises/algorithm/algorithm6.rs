@@ -2,8 +2,6 @@
 	dfs
 	This problem requires you to implement a basic DFS traversal
 */
-
-// I AM NOT DONE
 use std::collections::HashSet;
 
 struct Graph {
@@ -23,7 +21,13 @@ impl Graph {
     }
 
     fn dfs_util(&self, v: usize, visited: &mut HashSet<usize>, visit_order: &mut Vec<usize>) {
-        //TODO
+        if v >= self.adj.len() || !visited.insert(v) {
+            return;
+        }
+        visit_order.push(v);
+        for &neighbor in &self.adj[v] {
+            self.dfs_util(neighbor, visited, visit_order);
+        }
     }
 
     // Perform a depth-first search on the graph, return the order of visited nodes
@@ -38,6 +42,14 @@ impl Graph {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn empty_and_self_loop() {
+        assert!(Graph::new(0).dfs(0).is_empty());
+        let mut graph = Graph::new(1);
+        graph.add_edge(0, 0);
+        assert_eq!(graph.dfs(0), vec![0]);
+    }
 
     #[test]
     fn test_dfs_simple() {

@@ -3,14 +3,31 @@
 	This problem requires you to implement a sorting algorithm
 	you can use bubble sorting, insertion sorting, heap sorting, etc.
 */
-// I AM NOT DONE
 
-fn sort<T>(array: &mut [T]){
-	//TODO
+fn sort<T: Ord>(array: &mut [T]) {
+    for i in 1..array.len() {
+        let mut j = i;
+        while j > 0 && array[j] < array[j - 1] {
+            array.swap(j, j - 1);
+            j -= 1;
+        }
+    }
 }
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn empty_duplicates_and_strings() {
+        let mut empty: [i32; 0] = [];
+        sort(&mut empty);
+        let mut values = [2, -1, 2, 0];
+        sort(&mut values);
+        assert_eq!(values, [-1, 0, 2, 2]);
+        let mut words = [String::from("b"), String::from("a")];
+        sort(&mut words);
+        assert_eq!(words, ["a", "b"]);
+    }
 
     #[test]
     fn test_sort_1() {

@@ -2,7 +2,6 @@
 	queue
 	This question requires you to use queues to implement the functionality of the stac
 */
-// I AM NOT DONE
 
 #[derive(Debug)]
 pub struct Queue<T> {
@@ -54,34 +53,47 @@ impl<T> Default for Queue<T> {
 
 pub struct myStack<T>
 {
-	//TODO
 	q1:Queue<T>,
 	q2:Queue<T>
 }
 impl<T> myStack<T> {
     pub fn new() -> Self {
         Self {
-			//TODO
 			q1:Queue::<T>::new(),
 			q2:Queue::<T>::new()
         }
     }
     pub fn push(&mut self, elem: T) {
-        //TODO
+        self.q2.enqueue(elem);
+        while let Ok(value) = self.q1.dequeue() {
+            self.q2.enqueue(value);
+        }
+        std::mem::swap(&mut self.q1, &mut self.q2);
     }
     pub fn pop(&mut self) -> Result<T, &str> {
-        //TODO
-		Err("Stack is empty")
+        self.q1.dequeue().map_err(|_| "Stack is empty")
     }
     pub fn is_empty(&self) -> bool {
-		//TODO
-        true
+        self.q1.is_empty()
     }
 }
 
 #[cfg(test)]
 mod tests {
 	use super::*;
+
+    #[test]
+    fn supports_non_copy_values_and_reuse() {
+        let mut stack = myStack::new();
+        stack.push(String::from("first"));
+        stack.push(String::from("second"));
+        assert_eq!(stack.pop().unwrap(), "second");
+        assert_eq!(stack.pop().unwrap(), "first");
+        assert!(stack.is_empty());
+        stack.push(String::from("again"));
+        assert_eq!(stack.pop().unwrap(), "again");
+        assert_eq!(stack.pop(), Err("Stack is empty"));
+    }
 	
 	#[test]
 	fn test_queue(){

@@ -2,7 +2,6 @@
 	double linked list reverse
 	This problem requires you to reverse a doubly linked list
 */
-// I AM NOT DONE
 
 use std::fmt::{self, Display, Formatter};
 use std::ptr::NonNull;
@@ -72,9 +71,30 @@ impl<T> LinkedList<T> {
             },
         }
     }
-	pub fn reverse(&mut self){
-		// TODO
-	}
+    pub fn reverse(&mut self) {
+        let mut current = self.start;
+        while let Some(mut pointer) = current {
+            // SAFETY: 节点由当前链表独占，先保存原来的 next，再交换前后指针。
+            unsafe {
+                let node = pointer.as_mut();
+                current = node.next;
+                std::mem::swap(&mut node.next, &mut node.prev);
+            }
+        }
+        std::mem::swap(&mut self.start, &mut self.end);
+    }
+}
+
+impl<T> Drop for LinkedList<T> {
+    fn drop(&mut self) {
+        while let Some(node) = self.start {
+            // SAFETY: 节点来自 Box::into_raw，由当前链表独占，每个节点只释放一次。
+            unsafe {
+                let node = Box::from_raw(node.as_ptr());
+                self.start = node.next;
+            }
+        }
+    }
 }
 
 impl<T> Display for LinkedList<T>
@@ -104,6 +124,32 @@ where
 #[cfg(test)]
 mod tests {
     use super::LinkedList;
+
+    #[test]
+    fn reverse_empty_singleton_and_twice() {
+        let mut list = LinkedList::new();
+        list.reverse();
+        assert_eq!(list.get(0), None);
+        list.add(1);
+        list.reverse();
+        assert_eq!(list.get(0), Some(&1));
+        list.add(2);
+        list.add(3);
+        list.reverse();
+        assert_eq!(list.get(0), Some(&3));
+        // SAFETY: 检查指针期间，链表及其节点都还存在。
+        unsafe {
+            let head = list.start.unwrap();
+            assert!(head.as_ref().prev.is_none());
+            let next = head.as_ref().next.unwrap();
+            assert_eq!(next.as_ref().prev, Some(head));
+            assert!(list.end.unwrap().as_ref().next.is_none());
+        }
+        list.reverse();
+        assert_eq!(list.get(0), Some(&1));
+        assert_eq!(list.get(2), Some(&3));
+        assert_eq!(list.length, 3);
+    }
 
     #[test]
     fn create_numeric_list() {

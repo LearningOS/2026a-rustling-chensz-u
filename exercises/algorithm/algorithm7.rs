@@ -2,8 +2,6 @@
 	stack
 	This question requires you to use a stack to achieve a bracket match
 */
-
-// I AM NOT DONE
 #[derive(Debug)]
 struct Stack<T> {
 	size: usize,
@@ -31,8 +29,11 @@ impl<T> Stack<T> {
 		self.size += 1;
 	}
 	fn pop(&mut self) -> Option<T> {
-		// TODO
-		None
+        let value = self.data.pop();
+        if value.is_some() {
+            self.size -= 1;
+        }
+        value
 	}
 	fn peek(&self) -> Option<&T> {
 		if 0 == self.size {
@@ -101,13 +102,43 @@ impl<'a, T> Iterator for IterMut<'a, T> {
 
 fn bracket_match(bracket: &str) -> bool
 {
-	//TODO
-	true
+    let mut stack = Stack::new();
+    for ch in bracket.chars() {
+        match ch {
+            '(' | '[' | '{' => stack.push(ch),
+            ')' | ']' | '}' => {
+                let expected = match ch {
+                    ')' => '(',
+                    ']' => '[',
+                    _ => '{',
+                };
+                if stack.pop() != Some(expected) {
+                    return false;
+                }
+            }
+            _ => {}
+        }
+    }
+    stack.is_empty()
 }
 
 #[cfg(test)]
 mod tests {
 	use super::*;
+
+    #[test]
+    fn pop_tracks_stack_size() {
+        let mut stack = Stack::new();
+        assert_eq!(stack.pop(), None);
+        stack.push(String::from("first"));
+        stack.push(String::from("second"));
+        assert_eq!(stack.pop().as_deref(), Some("second"));
+        assert_eq!(stack.len(), 1);
+        assert_eq!(stack.peek().map(String::as_str), Some("first"));
+        assert_eq!(stack.pop().as_deref(), Some("first"));
+        assert_eq!(stack.pop(), None);
+        assert!(stack.is_empty());
+    }
 	
 	#[test]
 	fn bracket_matching_1(){

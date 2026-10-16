@@ -2,7 +2,6 @@
 	graph
 	This problem requires you to implement a basic graph functio
 */
-// I AM NOT DONE
 
 use std::collections::{HashMap, HashSet};
 use std::fmt;
@@ -29,7 +28,15 @@ impl Graph for UndirectedGraph {
         &self.adjacency_table
     }
     fn add_edge(&mut self, edge: (&str, &str, i32)) {
-        //TODO
+        let (from, to, weight) = edge;
+        self.adjacency_table
+            .entry(from.to_string())
+            .or_default()
+            .push((to.to_string(), weight));
+        self.adjacency_table
+            .entry(to.to_string())
+            .or_default()
+            .push((from.to_string(), weight));
     }
 }
 pub trait Graph {
@@ -37,11 +44,20 @@ pub trait Graph {
     fn adjacency_table_mutable(&mut self) -> &mut HashMap<String, Vec<(String, i32)>>;
     fn adjacency_table(&self) -> &HashMap<String, Vec<(String, i32)>>;
     fn add_node(&mut self, node: &str) -> bool {
-        //TODO
-		true
+        if self.contains(node) {
+            return false;
+        }
+        self.adjacency_table_mutable().insert(node.to_string(), Vec::new());
+        true
     }
     fn add_edge(&mut self, edge: (&str, &str, i32)) {
-        //TODO
+        let (from, to, weight) = edge;
+        self.add_node(from);
+        self.add_node(to);
+        self.adjacency_table_mutable()
+            .get_mut(from)
+            .unwrap()
+            .push((to.to_string(), weight));
     }
     fn contains(&self, node: &str) -> bool {
         self.adjacency_table().get(node).is_some()
@@ -63,6 +79,18 @@ pub trait Graph {
 mod test_undirected_graph {
     use super::Graph;
     use super::UndirectedGraph;
+
+    #[test]
+    fn duplicate_node_preserves_edges() {
+        let mut graph = UndirectedGraph::new();
+        assert!(graph.add_node("a"));
+        assert!(!graph.add_node("a"));
+        graph.add_edge(("a", "b", -2));
+        assert!(!graph.add_node("a"));
+        assert_eq!(graph.nodes().len(), 2);
+        assert_eq!(graph.edges().len(), 2);
+        assert!(graph.edges().iter().all(|(_, _, weight)| *weight == -2));
+    }
     #[test]
     fn test_add_edge() {
         let mut graph = UndirectedGraph::new();

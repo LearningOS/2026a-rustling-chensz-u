@@ -2,8 +2,6 @@
 	bfs
 	This problem requires you to implement a basic BFS algorithm
 */
-
-//I AM NOT DONE
 use std::collections::VecDeque;
 
 // Define a graph
@@ -27,10 +25,22 @@ impl Graph {
 
     // Perform a breadth-first search on the graph, return the order of visited nodes
     fn bfs_with_return(&self, start: usize) -> Vec<usize> {
-        
-		//TODO
-
         let mut visit_order = vec![];
+        if start >= self.adj.len() {
+            return visit_order;
+        }
+        let mut visited = vec![false; self.adj.len()];
+        let mut queue = VecDeque::from([start]);
+        visited[start] = true;
+        while let Some(node) = queue.pop_front() {
+            visit_order.push(node);
+            for &neighbor in &self.adj[node] {
+                if !visited[neighbor] {
+                    visited[neighbor] = true;
+                    queue.push_back(neighbor);
+                }
+            }
+        }
         visit_order
     }
 }
@@ -39,6 +49,18 @@ impl Graph {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn empty_disconnected_and_duplicate_edges() {
+        assert!(Graph::new(0).bfs_with_return(0).is_empty());
+        let mut graph = Graph::new(4);
+        graph.add_edge(0, 1);
+        graph.add_edge(0, 1);
+        graph.add_edge(1, 1);
+        graph.add_edge(2, 3);
+        assert_eq!(graph.bfs_with_return(0), vec![0, 1]);
+        assert_eq!(graph.bfs_with_return(2), vec![2, 3]);
+    }
 
     #[test]
     fn test_bfs_all_nodes_visited() {
